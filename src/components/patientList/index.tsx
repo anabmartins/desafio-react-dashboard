@@ -8,15 +8,19 @@ import User from '../../assets/user-dark.svg'
 
 function renderRow(props: ListChildComponentProps){
     const { index, style } = props;
-    const iconStyle = {
-      maxWidth: '20px', marginRight: 10, 
-    };
+    const styles = { 
+      iconStyle: {
+        maxWidth: '20px', marginRight: 10, 
+      },
+      listContainer: {
+        height: 50, marginTop: 30
+      }
+    }
     return(
         <ListItem style={style} key={index} component="div" disablePadding>
         <ListItemButton>
         <img src={User} 
-        alt={`Paciente ${index + 1}`} 
-        style={iconStyle} />
+        style={styles.iconStyle} />
         <ListItemText 
         primary={`Paciente ${index + 1}`} 
         />
@@ -28,10 +32,10 @@ function renderRow(props: ListChildComponentProps){
 export function PatientList(){
     return(
         <Box
-        sx={{ width: "100%", height: 400, maxWidth: '51%', bgcolor: 'background.paper' }}
+        sx={{ width: "100%", height: 478, maxWidth: '51%', bgcolor: 'background.paper' }}
       >
         <FixedSizeList
-          height={400}
+          height={478}
           width={321}
           itemSize={46}
           itemCount={50}
