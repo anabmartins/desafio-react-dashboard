@@ -1,0 +1,18 @@
+.containerHeader {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    padding: 30px 37px;
+    gap: 70%;
+}
+.userImage{
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    align-self: flex-end;
+    background-color: rgb(54, 54, 54);
+    border-radius: 100%;
+    cursor: pointer;
+}

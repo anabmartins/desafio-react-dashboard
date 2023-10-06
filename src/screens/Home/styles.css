@@ -1,0 +1,19 @@
+.containerHome {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    margin-top: 3%;
+    justify-content: center;
+    gap: 2rem;
+}
+.dashboard{
+    padding: 2rem;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+.agend{
+     display: flex;
+    align-content: center;
+    flex-direction: column;
+}

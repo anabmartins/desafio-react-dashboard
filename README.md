@@ -6,3 +6,7 @@
 3. cd nomedoprojeto
 4. npm i vite
 5. npm run dev
+
+## Rotas
+
+- npm i react-router-dom
