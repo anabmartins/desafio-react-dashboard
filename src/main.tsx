@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
 import { Home } from './screens/Home/'
 import { Agend } from './screens/Agend/'
 import { Manage } from './screens/Manage'
