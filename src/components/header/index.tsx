@@ -5,7 +5,7 @@ export function Header(){
     return(
         <>
        <header className='containerHeader'>
-        <h1>Clínica</h1>
+        <h1>Clínica Médica</h1>
         <img src={User} className='userImage'/>
        </header>
         </>

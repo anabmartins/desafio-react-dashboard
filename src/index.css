@@ -4,14 +4,22 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #111111e7;
+  background-color: #FFFF;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+::-webkit-scrollbar{
+  background-color: #d1d1d19c;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #9b9b9b;
+  border-radius: 10px;
 }
 a{
   color: #FFF;

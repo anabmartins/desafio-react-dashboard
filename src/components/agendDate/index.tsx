@@ -1,5 +1,5 @@
 import './styles.css'
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs/index';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider/index';
@@ -12,7 +12,7 @@ export function AgendDate() {
         <>
             <LocalizationProvider dateAdapter={AdapterDayjs} >
                 <DemoContainer components={['DateCalendar', 'DateCalendar']}>
-                    <DemoItem label="Controlled calendar" >
+                    <DemoItem>
                         <DateCalendar value={value} onChange={(newValue) => setValue(newValue)} className='calendar'/>
                     </DemoItem>
                 </DemoContainer>

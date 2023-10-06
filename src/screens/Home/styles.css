@@ -1,8 +1,6 @@
 .containerHome {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    margin-top: 3%;
+    grid-template-columns: 4fr 2fr;
     justify-content: center;
     gap: 2rem;
 }
@@ -12,8 +10,15 @@
     align-content: center;
     flex-direction: column;
 }
+.dashboard h1{
+    padding-top: 2rem;
+}
 .agend{
-     display: flex;
-    align-content: center;
+    display: flex;
+    padding-top: 1rem;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
+    background-color: #F2F2F2;
+    gap: 2rem;
 }
