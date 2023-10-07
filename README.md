@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
-
-- para criar:
+## tutorial 
+- para criar o projeto:
 1. npm i --g create-vite
 2. npx create-vite nomedoprojeto
 3. cd nomedoprojeto
@@ -10,3 +10,5 @@
 ## Rotas
 
 - npm i react-router-dom
+
+  
