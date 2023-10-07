@@ -1,14 +1,16 @@
 .containerHome {
     display: grid;
-    grid-template-columns: 4fr 2fr;
+    max-width: 100%;
+    grid-template-columns: 3rem 75vw 20vw;
     justify-content: center;
     gap: 2rem;
+    overflow: hidden;
 }
 .dashboard{
-    padding: 2rem;
     display: flex;
     align-content: center;
     flex-direction: column;
+    padding: 2rem;
 }
 .dashboard h1{
     padding-top: 2rem;
