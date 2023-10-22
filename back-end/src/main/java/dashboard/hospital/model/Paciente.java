@@ -14,7 +14,7 @@ public class Paciente {
     private Long id_paciente;
     
     private String nome_completo;
-    private Long data_nascimento;
+    private String data_nascimento;
     private String sexo;
-    private Long telefone;
+    private String telefone;
 }

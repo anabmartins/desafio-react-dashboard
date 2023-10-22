@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 
-@CrossOrigin(origins = "http:/localhost:5173/manage") // endereco do front
+@CrossOrigin(origins = "*") // endereco do front
 @RestController
 @RequestMapping("/pacientes")
 
