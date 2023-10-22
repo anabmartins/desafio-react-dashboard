@@ -1,4 +1,4 @@
-#  <img src="./src/assets/react.svg"> +   <img src="./src/assets/ts.svg"> +   <img src="./src/assets/vite.svg">
+#  <img src="./front-end/src/assets/react.svg"> +   <img src="./front-end/src/assets/ts.svg"> +   <img src="./front-end/src/assets/vite.svg">
 
 
 
