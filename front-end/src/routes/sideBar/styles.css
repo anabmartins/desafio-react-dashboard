@@ -1,0 +1,27 @@
+.sidebar{
+    background-color: #F1F1F1;
+    height: 100vh;
+    max-width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: start;
+    padding: 1rem;
+    gap: 1rem;
+}
+.option{
+    color: #111;
+    width: 2.5rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.sidebar button{
+    border: none;
+}
+.sidebar .option:hover {
+    background-color: #d8d8d8c2;
+  }
+  

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../node_modules/@mui/material/utils/useEnhancedEffect.js", "../../node_modules/@mui/material/utils/useForkRef.js"],
+  "sourcesContent": ["'use client';\n\nimport { unstable_useEnhancedEffect as useEnhancedEffect } from '@mui/utils';\nexport default useEnhancedEffect;", "'use client';\n\nimport { unstable_useForkRef as useForkRef } from '@mui/utils';\nexport default useForkRef;"],
+  "mappings": ";;;;;;;;;;AAAA,IAGOA;AAHP;AAAA;AAAA;AAEA;AACA,IAAOA,6BAAQ;AAAA;AAAA;;;ACHf,IAGO;AAHP;AAAA;AAAA;AAEA;AACA,IAAO,qBAAQ;AAAA;AAAA;",
+  "names": ["useEnhancedEffect_default"]
+}
