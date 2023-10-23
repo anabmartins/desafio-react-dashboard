@@ -1,5 +1,7 @@
 .containerCard{
     background-color: #CFCFCF;
     width: 100%;
-    height: 45%;
+    /* height: 45%; */
+    height: 4rem;
+    padding: 1rem 0rem; 
 }
