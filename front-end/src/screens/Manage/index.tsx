@@ -89,18 +89,19 @@ export function Manage() {
                     <p>Adicionar paciente</p>
                     <form onSubmit={handleSubmit}>
                         <input
+                            className='input'
                             type="text"
                             placeholder='Nome completo do paciente'
                             name='nomeInput'
                             value={nomeInput}
                             onChange={(event) => setNomeInput(event.target.value)}
                         />
-                        <button 
-                        // type="submit"
-                       onClick={handleSubmit}
+                        <button
+                            type="submit"
+                            className='btn'
                         >
-                            Adicionar Paciente
-                            </button>
+                            Adicionar
+                        </button>
                     </form>
                 </div>
             </div>

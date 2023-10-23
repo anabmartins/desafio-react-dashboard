@@ -21,8 +21,15 @@
   margin: 0px;
   padding: 0px;
 };
-a{
+a, .link{
   text-decoration: none;
+  all: unset;
+
+}
+a:visited{
+  text-decoration: none;
+  all: unset;
+
 }
 a:hover{
   transition: 0.5s;
