@@ -8,9 +8,9 @@ export function Manage() {
 
     const [pacientes, setPacientes] = useState([]);
     const [nomeInput, setNomeInput] = useState('');
-    const [dataInput, setDataInput] = useState();
-    const [sexoInput, setSexoInput] = useState("");
-    const [telefoneInput, setTelefoneInput] = useState();
+    const [dataInput, setDataInput] = useState('');
+    const [sexoInput, setSexoInput] = useState("Feminino");
+    const [telefoneInput, setTelefoneInput] = useState('');
 
     useEffect(() => {
         fetchPacientes();
@@ -28,6 +28,7 @@ export function Manage() {
 
     // Metodo POST 
     const handleSubmit = async () => {
+
         // event.preventDefault();
         try {
             let novoPaciente = {
@@ -77,8 +78,6 @@ export function Manage() {
     //     }
     // };
 
-
-
     return (
         <>
             <Header />
@@ -87,15 +86,47 @@ export function Manage() {
                 <div className="sectionManage">
                     <h1 className='title'>Gerenciar Pacientes</h1>
                     <p>Adicionar paciente</p>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className='form'>
                         <input
                             className='input'
                             type="text"
                             placeholder='Nome completo do paciente'
                             name='nomeInput'
                             value={nomeInput}
+                            required 
                             onChange={(event) => setNomeInput(event.target.value)}
                         />
+                        <select
+                            className='inputSelect'
+                            name='sexo'
+                            id='sexo'
+                            value={sexoInput}
+                            required 
+                            onChange={(event) => setSexoInput(event.target.value)}
+                        >
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                        </select>
+                        <input
+                            className='input'
+                            type="date"
+                            name='dataInput'
+                            value={dataInput}
+                            required 
+                            onChange={(event) => setDataInput(event.target.value)}
+                        />
+                        <input
+                            className='input'
+                            type="tel"
+                            placeholder='(12) 456789012'
+                            name='telefoneInput'
+                            value={telefoneInput}
+                            pattern="[0-9]{2} [0-9]{9}" 
+                            required 
+                            onChange={(event) => setTelefoneInput(event.target.value)}
+                        />
+                        <small>Formato: 12 4567890</small>
+
                         <button
                             type="submit"
                             className='btn'
