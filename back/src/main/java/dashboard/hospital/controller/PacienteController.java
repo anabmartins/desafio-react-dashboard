@@ -42,7 +42,8 @@ public class PacienteController {
             paciente.setNome_completo(pacienteAtualizado.getNome_completo());
             paciente.setSexo(pacienteAtualizado.getSexo());
             paciente.setTelefone(pacienteAtualizado.getTelefone());
-            
+            paciente.setEmail(pacienteAtualizado.getEmail());
+
             Paciente pacienteAtualizadoBD = pacienteRepository.save(paciente);
             return ResponseEntity.ok(pacienteAtualizadoBD);
         } else {

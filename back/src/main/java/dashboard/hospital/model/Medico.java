@@ -5,17 +5,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
-@Entity
-public class Paciente {
-    
+public class Medico {
+ 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_paciente;
-    
+    private Long id_medico;
+
     private String nome_completo;
-    private String data_nascimento;
-    private String sexo;
-    private String telefone;
     private String email;
+    private String senha;
 }
