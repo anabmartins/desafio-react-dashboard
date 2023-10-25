@@ -26,6 +26,10 @@ a, .link{
   all: unset;
 
 }
+a:-webkit-any-link {
+  text-decoration: none!important;
+
+}
 a:visited{
   text-decoration: none;
   all: unset;

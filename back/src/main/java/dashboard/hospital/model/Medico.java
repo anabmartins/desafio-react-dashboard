@@ -5,6 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
+@Entity
 public class Medico {
  
     @Id

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import './styles.css'
+import { useState, useEffect } from 'react';
 import { Header } from '../../components/header'
 import { SideBar } from '../../routes/sideBar'
 import axios from 'axios';
@@ -11,6 +11,7 @@ export function Manage() {
     const [dataInput, setDataInput] = useState('');
     const [sexoInput, setSexoInput] = useState("Feminino");
     const [telefoneInput, setTelefoneInput] = useState('');
+    const [emailInput, setEmailInput] = useState('');
 
     useEffect(() => {
         fetchPacientes();
@@ -36,10 +37,12 @@ export function Manage() {
                 data_nascimento: dataInput,
                 sexo: sexoInput,
                 telefone: telefoneInput,
+                email: emailInput,
             }
             await axios.post(`http://localhost:8090/pacientes`, novoPaciente)
             fetchPacientes();
             setNomeInput("");
+            
         } catch (error) {
             console.log('Erro ao criar Paciente: ', error);
 
@@ -121,12 +124,20 @@ export function Manage() {
                             placeholder='(12) 456789012'
                             name='telefoneInput'
                             value={telefoneInput}
-                            pattern="[0-9]{2} [0-9]{9}" 
+                            // pattern="[0-9]{2} [0-9]{9}" 
                             required 
                             onChange={(event) => setTelefoneInput(event.target.value)}
                         />
                         <small>Formato: 12 4567890</small>
-
+                        <input
+                            className='input'
+                            type="mail"
+                            placeholder='Email'
+                            name='emailInput'
+                            value={emailInput}
+                            required 
+                            onChange={(event) => setEmailInput(event.target.value)}
+                        />
                         <button
                             type="submit"
                             className='btn'

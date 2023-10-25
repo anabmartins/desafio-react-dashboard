@@ -1,24 +1,94 @@
 import './styles.css'
-import Box from '@mui/material/Box';
-import { FixedSizeList } from 'react-window';
-import { renderRow } from './renderRow';
+import { useState, useEffect } from 'react'
+import axios from 'axios';
 
 export function AgendList() {
+
+    // modal
+    const [isModalVisible, setModalVisible] = useState(false);
+    function closeModal() {
+        setModalVisible(false)
+    }
+    function openModal() {
+        setModalVisible(true)
+    }
+
+    const [consultas, setConsultas] = useState([]);
+    const [nome_consultaInput, setNome_consultaInput] = useState('');
+    const [dataInput, setDataInput] = useState('');
+    const [horarioInput, setHorarioInput] = useState('');
+
+    useEffect(() => {
+        fetchConsultas();
+    }, []);
+
+    // Metodo GET 
+    const fetchConsultas = async () => {
+        try {
+            const response = await axios.get('http://localhost:8090/consultas');
+            setConsultas(response.data);
+        } catch (error) {
+            console.log('Erro ao buscar consultas: ', error);
+        }
+    }
+
+    // Metodo POST 
+    const handleSubmit = async () => {
+
+        // event.preventDefault();
+        try {
+            let novaConsulta = {
+                nome_consulta: nome_consultaInput,
+                data: dataInput,
+                horario: horarioInput,
+            }
+            await axios.post(`http://localhost:8090/consultas`, novaConsulta)
+            fetchConsultas();
+            setNome_consultaInput("");
+            closeModal();
+        } catch (error) {
+            console.log('Erro ao criar Consulta: ', error);
+
+        }
+    }
+
+
     return (
         <>
-            <Box
-                sx={{ width: '100%', height: 700, maxWidth: 1000, bgcolor: 'background.paper' }}
-            >
-                <FixedSizeList
-                    height={700}
-                    width={1000}
-                    itemSize={80}
-                    itemCount={50}
-                    overscanCount={5}
-                >
-                    {renderRow}
-                </FixedSizeList>
-            </Box>
+            <div className="agendContainer">
+                <button className='btn'
+                    onClick={openModal}
+                >Nova consulta</button>
+                <div className="agendItem">
+
+                </div>
+                {isModalVisible && (
+                    <>
+                        <div className="modal">
+                            <p className='subtitle'>Adicionar consulta</p>
+                            <form onSubmit={handleSubmit} className='formModal'>
+                                <input
+                                    className='input'
+                                    type="text"
+                                    placeholder='Título da consulta'
+                                    name='nome_consultaInput'
+                                    id='nome_consultaInput'
+                                    value={nome_consultaInput}
+                                    required
+                                    onChange={(event) => setNome_consultaInput(event.target.value)}
+                                />
+                                <button
+                                    // onClick={}
+                                    className='modalBtn'
+                                    type="submit"
+                                    >
+                                    salvar
+                                </button>
+                            </form>
+                        </div>
+                    </>
+                )}
+            </div>
         </>
     )
 }

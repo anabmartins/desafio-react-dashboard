@@ -17,7 +17,8 @@ export function Agend(){
         <AgendDate />
         </div>
         <div className="agendList">
-        <h1 className='title'>20/Fev 2022</h1>
+        <h1 className='title'>Consultas</h1>
+        <strong>20/Fev 2022</strong>
         <AgendList />
         </div>
         </div>
