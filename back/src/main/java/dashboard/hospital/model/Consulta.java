@@ -14,6 +14,6 @@ public class Consulta {
     private Long id_consulta;
 
     private String nome_consulta;
-    private Short data;
-    private Short horario;
+    private String data;
+    private String horario;
 }

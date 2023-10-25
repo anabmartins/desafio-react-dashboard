@@ -81,6 +81,24 @@ export function AgendList() {
                                     required
                                     onChange={(event) => setNome_consultaInput(event.target.value)}
                                 />
+                                 <input
+                                    className='input'
+                                    type="date"
+                                    name='dataInput'
+                                    id='dataInput'
+                                    value={dataInput}
+                                    required
+                                    onChange={(event) => setDataInput(event.target.value)}
+                                />
+                                <input
+                                    className='input'
+                                    type="time"
+                                    name=''
+                                    id='horarioInput'
+                                    value={horarioInput}
+                                    required
+                                    onChange={(event) => setHorarioInput(event.target.value)}
+                                />
                                 <button
                                     // onClick={}
                                     className='modalBtn'
