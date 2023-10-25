@@ -29,10 +29,12 @@
         -31px -31px 61px #ffffff;
 
 }
-.modal input{
+
+.modal input {
     width: 100%;
 }
-.formModal{
+
+.formModal {
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -49,16 +51,88 @@
     background-color: black;
     cursor: pointer;
 }
-.subtitle{
+
+.subtitle {
     font-weight: 600;
     font-size: 1.5rem;
     padding-bottom: 1rem;
 }
-.closeBtn{
+
+.closeBtn {
     border: none;
     right: 1rem;
     top: 1rem;
     position: fixed;
     cursor: pointer;
     background: none;
+}
+.btnAgend{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9b9b9b;
+    padding: 0.7rem 1.8rem;
+    margin: 1rem 0rem;
+    width: 15%;
+    border: none;
+    border-radius: 5px;
+    color: #FFFF;
+    gap: 0.5rem;
+    cursor: pointer;
+  
+  }
+  
+  .btnAgend:hover {
+    opacity: 0.5;
+  }
+
+.agendList {
+    max-height: 50rem;
+    overflow-y: auto;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    width: 70%;
+    gap: 1rem;
+    padding: 0rem;
+    margin: 2rem 0rem;
+}
+
+.consultaItem {
+    background-color: #ededed;
+    padding: 0.7rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.agendList::-webkit-scrollbar {
+    width: 10px;
+}
+
+.agendList::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+}
+
+.consTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.date,
+.hour {
+    font-size: 1rem;
+}
+
+.userImageList {
+    width: 15px;
+    height: 15px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-self: flex-end;
+    background-color: #b3b3b3;
+    border-radius: 100%;
+    cursor: pointer;
 }

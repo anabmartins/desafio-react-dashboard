@@ -3,7 +3,7 @@ import { Header } from '../../components/header'
 import { SideBar } from '../../routes/sideBar';
 import { DoctortList } from '../../components/userList';
 import { AgendDate } from '../../components/agendDate';
-import { AgendList } from '../../components/agendList';
+import { AgendModal, AgendList } from '../../components/agendList';
 
 export function Agend(){
     return (
@@ -16,9 +16,10 @@ export function Agend(){
         <DoctortList />
         <AgendDate />
         </div>
-        <div className="agendList">
+        <div className="agendListContainer">
         <h1 className='title'>Consultas</h1>
         <strong>20/Fev 2022</strong>
+        <AgendModal />
         <AgendList />
         </div>
         </div>

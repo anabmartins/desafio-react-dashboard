@@ -1,12 +1,21 @@
 import './styles.css'
 import { useState, useEffect } from 'react'
+import { List } from './List.tsx'
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
-export function AgendList() {
 
-    // modal
-    const [isModalVisible, setModalVisible] = useState(false);
+interface Consulta {
+    nome_consulta: string;
+    data: string;
+    horario: string;
+}
+
+export function AgendModal() {
+
+// modal
+const [isModalVisible, setModalVisible] = useState(false);
     function closeModal() {
         setModalVisible(false)
     }
@@ -14,7 +23,6 @@ export function AgendList() {
         setModalVisible(true)
     }
 
-    const [consultas, setConsultas] = useState([]);
     const [nome_consultaInput, setNome_consultaInput] = useState('');
     const [dataInput, setDataInput] = useState('');
     const [horarioInput, setHorarioInput] = useState('');
@@ -46,6 +54,9 @@ export function AgendList() {
             await axios.post(`http://localhost:8090/consultas`, novaConsulta)
             fetchConsultas();
             setNome_consultaInput("");
+            setDataInput("");
+            setHorarioInput("");
+            handleViewConsultas();
             closeModal();
         } catch (error) {
             console.log('Erro ao criar Consulta: ', error);
@@ -53,13 +64,22 @@ export function AgendList() {
         }
     }
 
+    const [consultas, setConsultas] = useState<Consulta[]>([]);
+
+    const handleViewConsultas = () => {
+        fetchConsultas();
+    };
+
+
 
     return (
         <>
             <div className="agendContainer">
-                <button className='btn'
-                    onClick={openModal}
-                >Nova consulta</button>
+                <button className='btnAgend'
+                    onClick={openModal}>
+                    <AddCircleIcon />
+                    <p>Nova consulta</p>
+                    </button>
                 <div className="agendItem">
 
                 </div>
@@ -67,7 +87,7 @@ export function AgendList() {
                     <>
                         <div className="modal">
                             <button onClick={closeModal} className='closeBtn'>
-                               <CloseIcon />
+                                <CloseIcon />
                             </button>
                             <p className='subtitle'>Adicionar consulta</p>
                             <form onSubmit={handleSubmit} className='formModal'>
@@ -81,7 +101,7 @@ export function AgendList() {
                                     required
                                     onChange={(event) => setNome_consultaInput(event.target.value)}
                                 />
-                                 <input
+                                <input
                                     className='input'
                                     type="date"
                                     name='dataInput'
@@ -100,10 +120,9 @@ export function AgendList() {
                                     onChange={(event) => setHorarioInput(event.target.value)}
                                 />
                                 <button
-                                    // onClick={}
                                     className='modalBtn'
                                     type="submit"
-                                    >
+                                >
                                     salvar
                                 </button>
                             </form>
@@ -112,5 +131,11 @@ export function AgendList() {
                 )}
             </div>
         </>
+    )
+}
+
+export function AgendList() {
+    return (
+     <List />
     )
 }

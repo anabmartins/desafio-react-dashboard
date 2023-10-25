@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { Home } from './screens/Home/'
 import { Agend } from './screens/Agend/'
 import { Manage } from './screens/Manage'
+import { Login } from './screens/Login'
 
 import './index.css'
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter(
   [
     {
       path: '/',
+      element: <Login />
+    },
+    {
+      path: '/home',
       element: <Home />
     },
     {

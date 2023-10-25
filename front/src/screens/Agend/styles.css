@@ -10,6 +10,16 @@
     gap: 0.5rem;
     overflow: hidden;
 }
+.agendListContainer{
+    max-height: 50rem;
+    overflow-y: auto;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    width: 70%;
+    padding: 0rem 2rem;
+    margin: 2rem 0rem;
+}
 .listDoctors{
     display: flex;
     padding: 1rem;
@@ -19,11 +29,4 @@
     gap: 0.5rem;
     width: 30%;
     margin-left: 10px;
-}
-.agendList{
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    width: 70%;
-    padding: 2rem;
 }
