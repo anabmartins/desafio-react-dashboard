@@ -54,3 +54,11 @@
     font-size: 1.5rem;
     padding-bottom: 1rem;
 }
+.closeBtn{
+    border: none;
+    right: 1rem;
+    top: 1rem;
+    position: fixed;
+    cursor: pointer;
+    background: none;
+}

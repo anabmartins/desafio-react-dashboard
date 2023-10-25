@@ -1,5 +1,6 @@
 import './styles.css'
 import { useState, useEffect } from 'react'
+import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 
 export function AgendList() {
@@ -65,6 +66,9 @@ export function AgendList() {
                 {isModalVisible && (
                     <>
                         <div className="modal">
+                            <button onClick={closeModal} className='closeBtn'>
+                               <CloseIcon />
+                            </button>
                             <p className='subtitle'>Adicionar consulta</p>
                             <form onSubmit={handleSubmit} className='formModal'>
                                 <input
