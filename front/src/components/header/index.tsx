@@ -6,7 +6,7 @@ export function Header() {
     return (
         <>
             <header className='containerHeader'>
-                <NavLink to="/" className='link'>
+                <NavLink to="/home" className='link'>
                     <h1>
                         <img src="./logoWhite.svg" />
                         Clínica Médica</h1>

@@ -41,7 +41,7 @@ export function SideBar() {
             onClick={toggleDrawer('left', false)}
             onKeyDown={toggleDrawer('left', false)}
         >
-            <NavLink to="/">
+            <NavLink to="/home">
                 <div className="option">
                     <HomeOutlinedIcon />
                     <p className='link'>Home</p>
