@@ -1,0 +1,24 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "front/package.json",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/front/(.*)",
+        "dest": "front/$1",
+        "continue": true
+      },
+      {
+        "handle": "filesystem"
+      },
+      {
+        "src": "/.*",
+        "dest": "front/index.html"
+      }
+    ]
+  }
+  

@@ -46,7 +46,7 @@
 .modalBtn {
     border: none;
     padding: 0.7rem 2rem;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     color: #ffff;
     background-color: black;
     cursor: pointer;
@@ -105,7 +105,7 @@
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 .agendList::-webkit-scrollbar {

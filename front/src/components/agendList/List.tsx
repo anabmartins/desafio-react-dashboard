@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import User from '../../assets/user.svg'
 
-
 interface Consulta {
     nome_consulta: string;
     data: string;
@@ -11,8 +10,6 @@ interface Consulta {
 }
 
 export function List() {
-
-
 
     useEffect(() => {
         fetchConsultas();

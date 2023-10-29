@@ -24,6 +24,7 @@ export function Home() {
           </div>
           <div className="agend">
             <AgendDate />
+            <h1>Pacientes</h1>
             <PatientList />
           </div>
       </div>
