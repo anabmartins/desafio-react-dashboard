@@ -9,6 +9,7 @@
     justify-content: start;
     gap: 0.5rem;
     overflow: hidden;
+    width: 100%;
 }
 .agendListContainer{
     max-height: 50rem;
@@ -28,5 +29,6 @@
     background-color: #F2F2F2;
     gap: 0.5rem;
     width: 30%;
+    height: 100vh;
     margin-left: 10px;
 }

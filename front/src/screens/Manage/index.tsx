@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export function Manage() {
 
-    const [pacientes, setPacientes] = useState([]);
+    const [, setPacientes] = useState([]);
     const [nomeInput, setNomeInput] = useState('');
     const [dataInput, setDataInput] = useState('');
     const [sexoInput, setSexoInput] = useState("Feminino");

@@ -64,7 +64,7 @@ const [isModalVisible, setModalVisible] = useState(false);
         }
     }
 
-    const [consultas, setConsultas] = useState<Consulta[]>([]);
+    const [, setConsultas] = useState<Consulta[]>([]);
 
     const handleViewConsultas = () => {
         fetchConsultas();

@@ -92,7 +92,7 @@
     display: flex;
     align-content: center;
     flex-direction: column;
-    width: 70%;
+    width: 95%;
     gap: 1rem;
     padding: 0rem;
     margin: 2rem 0rem;
@@ -110,10 +110,6 @@
 
 .agendList::-webkit-scrollbar {
     width: 10px;
-}
-
-.agendList::-webkit-scrollbar-thumb {
-    border-radius: 5px;
 }
 
 .consTitle {
