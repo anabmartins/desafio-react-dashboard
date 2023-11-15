@@ -4,27 +4,28 @@ import './styles.css'
 export function Login() {
     return (
         <div className="container">
-            <img src="./logo.svg" />
-            <p className='title'>Entrar</p>
             <div className="containerLogin">
-                <p className='text'>Email</p>
+            <img src="./logoWhite.svg" />
+            <p className='title'>Entrar</p>
+                <p className='text'><abbr title="seu email">Email</abbr></p>
                 <input
                     type="mail"
-                    placeholder='email'
+                    placeholder='Email'
                     className='input'
                 />
-                <p className='text'>Senha</p>
+                <p className='text'><abbr title="sua senha">Senha</abbr></p>
                 <input
                     type="password"
-                    placeholder='senha'
+                    placeholder='Senha'
                     className='input'
                 />
                 <NavLink to="/home">
-                    <button className='modalBtn'>
+                    <button className='btnLogin'>
                         Entrar
                     </button>
                 </NavLink>
             </div>
+            <span>Hospital@2023</span>
         </div>
     )
 }

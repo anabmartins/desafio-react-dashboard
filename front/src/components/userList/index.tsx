@@ -17,31 +17,36 @@ export function PatientList() {
     fetchPacientes();
   }, []);
 
-  
-    // Metodo GET 
-    const fetchPacientes = async () => {
-      try {
-          const response = await axios.get('http://localhost:8090/pacientes');
-          setPacientes(response.data);
-      } catch (error) {
-          console.log('Erro ao buscar pacientes: ', error);
-      }
+
+  // Metodo GET 
+  const fetchPacientes = async () => {
+    try {
+      const response = await axios.get('http://localhost:8090/pacientes');
+      setPacientes(response.data);
+      setQtdPacientes(response.data.length);
+    } catch (error) {
+      console.log('Erro ao buscar pacientes: ', error);
+    }
   }
 
   const [pacientes, setPacientes] = useState<Paciente[]>([]);
+  const [qtdPacientes, setQtdPacientes] = useState(0);
 
   return (
     <>
-    <div className="patientList">
-    {pacientes.map((paciente, index) => (
-                    <div key={index} className='itemList'>
-                        <img src={User} className='userImageList' />
-                        <p className='hour'>{paciente.nome_completo}</p>
-                        <div>
-                        </div>
-                    </div>
-                ))}
-    </div>
+      <h1>Pacientes 
+        <small> ({qtdPacientes})</small>
+        </h1>
+      <div className="patientList">
+        {pacientes.map((paciente, index) => (
+          <div key={index} className='itemList'>
+            <img src={User} className='userImageList' />
+            <p className='hour'>{paciente.nome_completo}</p>
+            <div>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
@@ -51,5 +56,5 @@ export function DoctortList() {
   return (
     <>
     </>
-    )
+  )
 }
