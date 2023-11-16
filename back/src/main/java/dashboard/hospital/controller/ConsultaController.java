@@ -41,6 +41,8 @@ public class ConsultaController{
             consulta.setNome_consulta(consultaAtualizado.getNome_consulta());
             consulta.setData(consultaAtualizado.getData());
             consulta.setHorario(consultaAtualizado.getHorario());
+            consulta.setPaciente(consultaAtualizado.getPaciente());
+            consulta.setMedico(consultaAtualizado.getMedico());
 
             Consulta consultaAtualizadoBD = consultaRepository.save(consulta);
             return ResponseEntity.ok(consultaAtualizadoBD);

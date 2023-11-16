@@ -120,7 +120,7 @@ const [isModalVisible, setModalVisible] = useState(false);
                                     onChange={(event) => setHorarioInput(event.target.value)}
                                 />
                                 <button
-                                    className='modalBtn'
+                                    className='btnLogin'
                                     type="submit"
                                 >
                                     salvar

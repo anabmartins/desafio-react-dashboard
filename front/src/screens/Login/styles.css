@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 25%;
-    /* height: 70%; */
+    height: 70%; 
     border-radius: 1rem;
     gap: 1rem;
     transition: 0.5s;
@@ -59,7 +59,7 @@
 .container span{
     bottom: 0;
     position: fixed;
-    margin-bottom: 3vh;
+    margin-bottom: 1px;
     opacity: 0.8;
 }
 .container a{

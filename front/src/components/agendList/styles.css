@@ -27,7 +27,13 @@
     background: #ffffff;
     box-shadow: 31px 31px 61px #ededed,
         -31px -31px 61px #ffffff;
-
+    background-color: #99afbd;
+    background: rgba(48, 48, 48, 0.274);
+    box-shadow: 0 8px 32px 0 rgba(49, 49, 49, 0.37);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(234, 241, 248, 0.18)
 }
 
 .modal input {
@@ -66,7 +72,8 @@
     cursor: pointer;
     background: none;
 }
-.btnAgend{
+
+.btnAgend {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,12 +86,12 @@
     color: #FFFF;
     gap: 0.5rem;
     cursor: pointer;
-  
-  }
-  
-  .btnAgend:hover {
+
+}
+
+.btnAgend:hover {
     opacity: 0.5;
-  }
+}
 
 .agendList {
     max-height: 50rem;
