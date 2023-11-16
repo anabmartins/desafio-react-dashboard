@@ -16,4 +16,10 @@ public class Consulta {
     private String nome_consulta;
     private String data;
     private String horario;
-}
+    
+    @ManyToOne
+    private Paciente paciente;
+    
+    @ManyToOne
+    private Medico medico;
+} 
