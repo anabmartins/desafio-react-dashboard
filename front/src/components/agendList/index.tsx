@@ -10,6 +10,9 @@ interface Consulta {
     nome_consulta: string;
     data: string;
     horario: string;
+    nome_paciente: string;
+    nome_medico: string;
+
 }
 
 export function AgendModal() {
@@ -64,8 +67,10 @@ const [isModalVisible, setModalVisible] = useState(false);
         }
     }
 
-    const [, setConsultas] = useState<Consulta[]>([]);
+    const [consulta, setConsultas] = useState<Consulta[]>([]);
 
+    console.log(consulta);
+    
     const handleViewConsultas = () => {
         fetchConsultas();
     };
