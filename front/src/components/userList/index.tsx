@@ -3,15 +3,15 @@ import User from '../../assets/user-dark.svg'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-interface Paciente {
-  nome_completo: string;
-  data_nascimento: string;
-  sexo: string;
-  telefone: string;
-  email: string;
-}
-
 export function PatientList() {
+  
+  interface Paciente {
+    nome_completo: string;
+    data_nascimento: string;
+    sexo: string;
+    telefone: string;
+    email: string;
+  }
 
   useEffect(() => {
     fetchPacientes();
@@ -34,9 +34,9 @@ export function PatientList() {
 
   return (
     <>
-      <h1>Pacientes 
+      <h1>Pacientes
         <small> ({qtdPacientes})</small>
-        </h1>
+      </h1>
       <div className="patientList">
         {pacientes.map((paciente, index) => (
           <div key={index} className='itemList'>
@@ -53,8 +53,44 @@ export function PatientList() {
 
 export function DoctortList() {
 
+  interface Medico {
+    nome_completo: string;
+    email: string;
+    senha: string;
+  }
+
+  const [medicos, setMedicos] = useState<Medico[]>([]);
+  const [qtdMedicos, setQtdMedicos] = useState(0);
+
+  useEffect(() => {
+    fetchMedicos();
+  }, [])
+
+  const fetchMedicos = async () => {
+    try {
+      const response = await axios.get('http://localhost:8090/medicos');
+      setMedicos(response.data);
+      setQtdMedicos(response.data.length);
+    } catch (error) {
+      console.log('Erro ao buscar medicos: ', error);
+    }
+  }
+
   return (
     <>
+      <h1 className='title'>Médicos
+        <small> ({qtdMedicos})</small>
+      </h1>
+      <div className="doctorList">
+        {medicos.map((medico, index) => (
+          <div key={index} className='itemList'>
+            <img src={User} className='userImageList' />
+            <p className='hour'>{medico.nome_completo}</p>
+            <div>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   )
 }

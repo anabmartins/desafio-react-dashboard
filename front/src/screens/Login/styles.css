@@ -6,15 +6,16 @@
     /* height: 70%; */
     border-radius: 1rem;
     gap: 1rem;
+    transition: 0.5s;
     padding: 5rem 3vw;
     justify-content: center;
-    background-color: #00000098;
-    background: rgba(0, 0, 0, 0.35);
+    background-color: #99afbd;
+    background: rgba(18, 40, 66, 0.274);
     box-shadow: 0 8px 32px 0 rgba(49, 49, 49, 0.37);
     backdrop-filter: blur( 13.5px );
     -webkit-backdrop-filter: blur( 13.5px );
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(234, 241, 248, 0.18)
 }
 .title{
     font-weight: 700;
@@ -27,9 +28,10 @@
     align-items: center;
     justify-content: center;
     background-color: #1d1d1d;
-    background: url(../../assets/hospital.jpg);
+    background: url(../../assets/fundo.avif);
+    /* background: url(); */
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 150%;
     height: 100vh;
     color: #FFF;
 }
@@ -58,5 +60,13 @@
     bottom: 0;
     position: fixed;
     margin-bottom: 3vh;
+    opacity: 0.8;
+}
+.container a{
+    cursor: pointer;
+    transition: 0.5s;
+}
+.container a:hover{
+    text-decoration: underline;
     opacity: 0.8;
 }

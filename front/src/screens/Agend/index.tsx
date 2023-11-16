@@ -12,7 +12,6 @@ export function Agend(){
         <div className="containerAgend">
         <SideBar />
         <div className="listDoctors">
-        <h1 className='title'>Médicos</h1>
         <DoctortList />
         <AgendDate />
         </div>

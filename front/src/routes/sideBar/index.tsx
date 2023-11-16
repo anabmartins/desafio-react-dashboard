@@ -6,6 +6,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import InsertInvitationOutlinedIcon from '@mui/icons-material/InsertInvitationOutlined';
 import HealthAndSafetyOutlinedIcon from '@mui/icons-material/HealthAndSafetyOutlined';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import LogoutIcon from '@mui/icons-material/Logout';
 // drawer
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -59,6 +60,12 @@ export function SideBar() {
                 <div className="option">
                     <HealthAndSafetyOutlinedIcon />
                     <p className='link'>Gerenciamento</p>
+                </div>
+            </NavLink>
+            <NavLink to="/">
+                <div className="option">
+                    <LogoutIcon />
+                    <p className='link'>Sair</p>
                 </div>
             </NavLink>
             {/* <Divider /> */}
