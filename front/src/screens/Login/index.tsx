@@ -1,9 +1,43 @@
 import './styles.css'
-import { NavLink } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
+const logar = async (email: string, senha: string) => {
+    try {
+        const response = await axios.post('http://localhost:8090/api/login', {
+            email: email,
+            senha: senha,
+        });
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export function Login() {
+
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [errosLogin, setErrosLogin] = useState('');
+
+    const handleLoginSubmit = async () => {
+        try {
+            const response = await logar(email, senha);
+            console.log(response);
+            if (!email || !senha) {
+                setErrosLogin('Preencha todos os campos');
+            } else if (response == true) {
+                // localStorage.setItem('token', response.data.token);
+                window.location.href = '/home';
+                setErrosLogin('');
+            } else {
+                setErrosLogin('Usuário ou senha inválidos');
+            }
+        } catch (error) {
+            setErrosLogin("erro ao se logar");
+        }
+    }
+
 
     const [visibleLogin, setVisibleLogin] = useState(true)
     const [visibleRegister, setVisibleRegister] = useState(false)
@@ -18,39 +52,30 @@ export function Login() {
         emailInput: '',
         senhaInput: ''
     })
-    const [, setMedicos] = useState([]);
+    const [errosRegister, setErrosRegister] = useState('');
 
-    useEffect(() => {
-        fetchMedicos();
-    }, [])
-
-    const fetchMedicos = async () => {
-        try {
-            const response = await axios.get('http://localhost:8090/medicos');
-            setMedicos(response.data);
-        } catch (error) {
-            console.log('Erro ao buscar medicos: ', error);
-        }
-    }
 
     const handleSubmit = async () => {
         try {
-            let novoMedico = {
-                nome_completo: inputRegister.nomeInput,
-                email: inputRegister.emailInput,
-                senha: inputRegister.senhaInput,
+            if (!inputRegister.nomeInput || !inputRegister.emailInput || !inputRegister.senhaInput) {
+                setErrosRegister("campos não podem ser nulos!")
+            } else {
+                let novoMedico = {
+                    nome_completo: inputRegister.nomeInput,
+                    email: inputRegister.emailInput,
+                    senha: inputRegister.senhaInput,
+                }
+                await axios.post('http://localhost:8090/medicos', novoMedico);
+                // fetchData();
+                setInputRegister({
+                    nomeInput: '',
+                    emailInput: '',
+                    senhaInput: ''
+                })
+                setErrosRegister(`Médico ${inputRegister.nomeInput} cadastrado com sucesso`)
             }
-            await axios.post('http://localhost:8090/medicos', novoMedico);
-            fetchMedicos();
-            setInputRegister({
-                nomeInput: '',
-                emailInput: '',
-                senhaInput: ''
-            })
-            alert(`Médico ${inputRegister.nomeInput} cadastrado com sucesso`)
         } catch (error) {
-            console.log("erro ao cadastrar: ", error);
-
+            setErrosRegister("erro ao cadastrar");
         }
     }
     const handleInputChange = (event: any) => {
@@ -60,7 +85,6 @@ export function Login() {
             [name]: value,
         }));
     };
-
 
     return (
         <div className="container">
@@ -74,18 +98,23 @@ export function Login() {
                             type="mail"
                             placeholder='Email'
                             className='input'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <p className='text'>Senha</p>
                         <input
                             type="password"
                             placeholder='Senha'
                             className='input'
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
                         />
-                        <NavLink to="/home">
-                            <button className='btnLogin'>
-                                Entrar
-                            </button>
-                        </NavLink>
+                        <p>
+                            {errosLogin}
+                        </p>
+                        <button className='btnLogin' onClick={handleLoginSubmit}>
+                            Entrar
+                        </button>
                         <a onClick={setRegister}>
                             Não possui conta?
                             <strong> Cadastre-se</strong>
@@ -124,13 +153,16 @@ export function Login() {
                             value={inputRegister.senhaInput}
                             onChange={handleInputChange}
                         />
-                            <button
-                                className='btnLogin'
-                                onClick={handleSubmit}
-                                type="submit"
-                            >
-                                Registrar
-                            </button>
+                         <p>
+                            {errosRegister}
+                        </p>
+                        <button
+                            className='btnLogin'
+                            onClick={handleSubmit}
+                            type="submit"
+                        >
+                            Registrar
+                        </button>
                         <a onClick={setRegister}>
                             Faça Login
                         </a>

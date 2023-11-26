@@ -2,6 +2,7 @@ import './styles.css'
 import User from '../../assets/user-dark.svg'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { getDatabase } from '../../api';
 
 export function PatientList() {
   
@@ -63,17 +64,22 @@ export function DoctortList() {
   const [qtdMedicos, setQtdMedicos] = useState(0);
 
   useEffect(() => {
-    fetchMedicos();
+      fetchData();
   }, [])
 
-  const fetchMedicos = async () => {
-    try {
-      const response = await axios.get('http://localhost:8090/medicos');
-      setMedicos(response.data);
-      setQtdMedicos(response.data.length);
-    } catch (error) {
-      console.log('Erro ao buscar medicos: ', error);
-    }
+  const fetchData = async () => {
+      try {
+          const response = await getDatabase();
+          if (response) {
+              setMedicos(response.data);
+              setQtdMedicos(response.data.length);
+              console.log(medicos);
+          } else {
+              console.error('Resposta nula ao buscar dados');
+          }
+      } catch (error) {
+          console.log('Erro ao buscar medicos: ', error);
+      }
   }
 
   return (
