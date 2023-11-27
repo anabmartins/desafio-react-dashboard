@@ -25,19 +25,24 @@ export function Login() {
             const response = await logar(email, senha);
             console.log(response);
             if (!email || !senha) {
-                setErrosLogin('Preencha todos os campos');
+                setTimeout(() => {
+                    setErrosLogin('Preencha todos os campos');
+                }, 300);
             } else if (response == true) {
                 // localStorage.setItem('token', response.data.token);
                 window.location.href = '/home';
                 setErrosLogin('');
             } else {
-                setErrosLogin('Usuário ou senha inválidos');
+                setTimeout(() => {
+                    setErrosLogin('Usuário ou senha inválidos');
+                }, 300);
             }
         } catch (error) {
-            setErrosLogin("erro ao se logar");
+            setTimeout(() => {
+                setErrosLogin("erro ao se logar");
+            }, 300);
         }
     }
-
 
     const [visibleLogin, setVisibleLogin] = useState(true)
     const [visibleRegister, setVisibleRegister] = useState(false)
@@ -58,8 +63,10 @@ export function Login() {
     const handleSubmit = async () => {
         try {
             if (!inputRegister.nomeInput || !inputRegister.emailInput || !inputRegister.senhaInput) {
+                setTimeout(() => {
                 setErrosRegister("campos não podem ser nulos!")
-            } else {
+            }, 300);
+        } else {
                 let novoMedico = {
                     nome_completo: inputRegister.nomeInput,
                     email: inputRegister.emailInput,
@@ -72,10 +79,14 @@ export function Login() {
                     emailInput: '',
                     senhaInput: ''
                 })
-                setErrosRegister(`Médico ${inputRegister.nomeInput} cadastrado com sucesso`)
+                setTimeout(() => {
+                    setErrosRegister(`Médico ${inputRegister.nomeInput} cadastrado com sucesso`)
+                }, 300);
             }
         } catch (error) {
-            setErrosRegister("erro ao cadastrar");
+            setTimeout(() => {
+                setErrosRegister("erro ao cadastrar");
+            }, 300);
         }
     }
     const handleInputChange = (event: any) => {
@@ -153,7 +164,7 @@ export function Login() {
                             value={inputRegister.senhaInput}
                             onChange={handleInputChange}
                         />
-                         <p>
+                        <p>
                             {errosRegister}
                         </p>
                         <button

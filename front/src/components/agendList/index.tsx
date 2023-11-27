@@ -1,6 +1,6 @@
 import './styles.css'
 import { useState, useEffect } from 'react'
-import { List } from './List.tsx'
+import { List } from './List'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
@@ -12,13 +12,12 @@ interface Consulta {
     horario: string;
     nome_paciente: string;
     nome_medico: string;
-
 }
 
 export function AgendModal() {
 
-// modal
-const [isModalVisible, setModalVisible] = useState(false);
+    // modal
+    const [isModalVisible, setModalVisible] = useState(false);
     function closeModal() {
         setModalVisible(false)
     }
@@ -29,6 +28,10 @@ const [isModalVisible, setModalVisible] = useState(false);
     const [nome_consultaInput, setNome_consultaInput] = useState('');
     const [dataInput, setDataInput] = useState('');
     const [horarioInput, setHorarioInput] = useState('');
+    // const [nome_paciente, set_nomePaciente] = useState('')
+    // const [nome_medico, set_nomeMedico] = useState('')
+    // mensagem de erro
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         fetchConsultas();
@@ -40,42 +43,55 @@ const [isModalVisible, setModalVisible] = useState(false);
             const response = await axios.get('http://localhost:8090/consultas');
             setConsultas(response.data);
         } catch (error) {
-            console.log('Erro ao buscar consultas: ', error);
+            setErrorMessage('Erro ao buscar consultas');
         }
     }
+
+    // const getPacientePorId = async () => {
+    //     // buscar pacientes pelo id
+    //     try {
+    //         const response = await axios.get('http://localhost:8090/pacientes/' + nome_paciente);
+    //         set_nomePaciente(response.data.nome);
+    //         console.log(response);
+    //     } catch (error) {
+    //         console.log('Erro ao buscar paciente', error);
+    //     }
+    // }
 
     // Metodo POST 
     const handleSubmit = async () => {
 
         // event.preventDefault();
         try {
-            let novaConsulta = {
-                nome_consulta: nome_consultaInput,
-                data: dataInput,
-                horario: horarioInput,
+            // verificar os campos
+            if (!nome_consultaInput || !dataInput || !horarioInput) {
+                setErrorMessage('Preencha todos os campos');
+            } else {
+                let novaConsulta = {
+                    nome_consulta: nome_consultaInput,
+                    data: dataInput,
+                    horario: horarioInput,
+                }
+                await axios.post(`http://localhost:8090/consultas`, novaConsulta)
+                fetchConsultas();
+                setNome_consultaInput("");
+                setDataInput("");
+                setHorarioInput("");
+                handleViewConsultas();
+                closeModal();
             }
-            await axios.post(`http://localhost:8090/consultas`, novaConsulta)
-            fetchConsultas();
-            setNome_consultaInput("");
-            setDataInput("");
-            setHorarioInput("");
-            handleViewConsultas();
-            closeModal();
         } catch (error) {
-            console.log('Erro ao criar Consulta: ', error);
-
+            setErrorMessage('Erro ao criar Consulta');
         }
     }
 
     const [consulta, setConsultas] = useState<Consulta[]>([]);
 
     console.log(consulta);
-    
+
     const handleViewConsultas = () => {
         fetchConsultas();
     };
-
-
 
     return (
         <>
@@ -84,7 +100,7 @@ const [isModalVisible, setModalVisible] = useState(false);
                     onClick={openModal}>
                     <AddCircleIcon />
                     <p>Nova consulta</p>
-                    </button>
+                </button>
                 <div className="agendItem">
 
                 </div>
@@ -124,6 +140,10 @@ const [isModalVisible, setModalVisible] = useState(false);
                                     required
                                     onChange={(event) => setHorarioInput(event.target.value)}
                                 />
+                                <select name="" id="" className='input'>
+                                    <option value="">paciente 1</option>
+                                </select>
+                                {errorMessage}
                                 <button
                                     className='btnLogin'
                                     type="submit"
@@ -141,6 +161,6 @@ const [isModalVisible, setModalVisible] = useState(false);
 
 export function AgendList() {
     return (
-     <List />
+        <List />
     )
 }

@@ -18,6 +18,7 @@ public class Consulta {
     private String horario;
     
     @ManyToOne
+   // @JoinColumn(name = "nome_completo",nullable=false)
     private Paciente paciente;
     
     @ManyToOne
